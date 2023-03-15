@@ -83,7 +83,7 @@ const updateJob=async (req,res)=>{
     }
 }
 
-const applyForjob= async(req,res)=>{
+const applyForJob= async(req,res)=>{
     try {
        const {id, userId, resume, resumeLink, userType}= req.body;
        interestedObj={userId, resume, resumeLink, userType}
@@ -104,6 +104,7 @@ const applyForjob= async(req,res)=>{
         res.status(500).json(error.message)   
     }
 }
+
 const removeAppliedJob= async(req,res)=>{
 try {
     const {id, userId,userType}= req.body;
@@ -148,4 +149,43 @@ try {
 }
 }
 
-module.exports= {createJob,updateJob,removeAppliedJob,applyForjob};
+const updateAppliedStatus= async(req,res)=>{
+    // console.log("entered")
+    const {id, userId, status, userType} = req.body;
+    console.log(userType);
+    if(userType==="student"){
+        // console.log("in if");
+    const studentData = await Student.findOne({email:userId});
+    for(var i=0;i<studentData.job.length;i++){
+        if(studentData.job[i].id===id){
+            var data=studentData.job[i];
+            await Student.findOneAndUpdate({email:userId},{$pull:{job:data}});
+            data.status=status;
+            await Student.findOneAndUpdate({email:userId},{$push:{job:data}});
+           
+
+            res.status(200).json(data);
+
+        }
+    }
+}
+        else if(userType==="professional"){
+            const professionalData=await Professional.findOne({email:userId});
+    for(var i=0;i<professionalData.job.length;i++){
+        if(professionalData.job[i].id===id){
+            var data=professionalData.job[i];
+            await Professional.findOneAndUpdate({email:userId},{$pull:{job:data}});
+            data.status=status;
+            await Professional.findOneAndUpdate({email:userId},{$push:{job:data}});
+            // var data=studentData.job[i];
+            // data.status=status;
+            // const resObj=Student.findOneAndUpdate({email:userId},{$set: { 'job.i': data }},{ new: true});
+            res.status(200).json(data);
+
+        }
+    }
+}
+}
+
+
+module.exports= {createJob,updateJob,removeAppliedJob,applyForJob,updateAppliedStatus};

@@ -39,8 +39,8 @@ const JobSchema = new mongoose.Schema(
             required:true,
         },
         interested:{
-            type:Object,
-            default:{}
+            type:Array,
+            default:[]
         },
         status:{
             type:String,

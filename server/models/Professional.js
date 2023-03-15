@@ -43,16 +43,16 @@ const ProfessionalSchema = new mongoose.Schema(
             required:true,
         },
         job:{
-            type:Object,
-            default:{}
+            type:Array,
+            default:[]
         },
         internship:{
-            type:Object,
-            default:{}
+            type:Array,
+            default:[]
         },
         hackathon:{
-            type:Object,
-            default:{}
+            type:Array,
+            default:[]
         },
         password:{
             type:String,

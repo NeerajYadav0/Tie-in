@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const {removeAppliedJob,applyForjob}= require("../controllers/job")
+const {removeAppliedJob,applyForJob}= require("../controllers/job")
 
-router.post("/applyForJob",applyForjob);
+router.post("/applyForJob",applyForJob);
 router.post("/removeAppliedJob",removeAppliedJob);
 
 module.exports = router;

@@ -12,6 +12,8 @@ const professionalRoute= require("./routes/professional");
 const loginRoute= require("./routes/login");
 const registerRoute= require("./routes/register");
 const jobRoute= require("./routes/job");
+const internshipRoute= require("./routes/internship");
+// const jobRoute= require("./routes/hackathon");
 
 
 //configurations 
@@ -30,6 +32,7 @@ app.use("/api/employer",employerRoute)
 app.use("/api/login",loginRoute)
 app.use("/api/register",registerRoute)
 app.use("/api/job",jobRoute)
+app.use("/api/internship",internshipRoute)
 
 //server and database
 const port = process.env.PORT || 8000;

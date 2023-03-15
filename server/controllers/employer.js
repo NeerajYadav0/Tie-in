@@ -1,6 +1,7 @@
 const Employer = require("../models/Employer")
 const bcrypt = require("bcrypt")
-const Job= require("../models/Job")
+const Job= require("../models/Job");
+const Student = require("../models/Student");
 
 const employerRegister=async(req,res)=>{
     const {name,
@@ -101,7 +102,6 @@ const createJob=async (req,res)=>{
         res.status(500).json(error.message)   
     }
 }
-
 
 
 

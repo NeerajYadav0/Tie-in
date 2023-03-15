@@ -13,7 +13,6 @@ const professionalRegister= async(req,res)=>{
         description,
         experience,
         profile,
-        job,
         password,
 
     }=req.body
@@ -32,7 +31,6 @@ const professionalRegister= async(req,res)=>{
             description,
             experience,
             profile,
-            job,
             password:hashPassword
 
         });

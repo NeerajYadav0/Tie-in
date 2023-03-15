@@ -47,7 +47,7 @@ const InternshipSchema = new mongoose.Schema(
             required:true,
         },
         companyLogo:{
-            type:URL,
+            type:String,
             required:true,
         },
 
