@@ -59,7 +59,7 @@ const HackathonSchema = new mongoose.Schema(
             required:true,
         },
         logo:{
-            type:URL,
+            type:String,
             required:true,
         },
         instituteName:{
@@ -72,7 +72,7 @@ const HackathonSchema = new mongoose.Schema(
             min:1
         },
         prize:{
-            type:number,
+            type:Number,
             required:true,
         },
         interested:{
