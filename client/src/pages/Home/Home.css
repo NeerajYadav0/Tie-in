@@ -1,0 +1,23 @@
+.homeBg{
+    background-image: url("../../assets/blurry.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.role{
+    color: #4e45d5;
+    font-weight: 800;
+}
+.swiper-container{
+    object-fit: cover
+}
+.swiper-container {
+    width: 50%;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    object-fit: cover
+  }
+  .swiper-slide{
+    
+    object-fit: cover;
+  }
